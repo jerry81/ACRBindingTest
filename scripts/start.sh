@@ -18,10 +18,10 @@ aliyun oss mkdir ${OSS_BASE_URL}//$curDate
 
 aliyun oss cp ./tmp ${OSS_BASE_URL}//$curDate -r -f
 
-touch ./scripts/curDate.txt
+touch ./scripts/lastUpdate.txt
 
-$curdate > ./scripts/curDate.txt
+$curdate > ./scripts/lastUpdate.txt
 
-aliyun oss cp ./scripts/curDate.txt ${OSS_BASE_URL}//lastUpdate.txt
+aliyun oss cp ./scripts/curDate.txt ${OSS_BASE_URL}
 
 echo "done"
