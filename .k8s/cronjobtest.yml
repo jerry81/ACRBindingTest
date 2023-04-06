@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
           - name: cronjob-test
-            image: registry.cn-shanghai.aliyuncs.com/netilion-china/influx-backup-test:6c7a4f5b2731c57a806034b5e6779289603092ea
+            image: registry.cn-shanghai.aliyuncs.com/netilion-china/test-cronjob:6e24a0901d9f01ea9da4cc7be0b6fce477934e6a
             env:
             - name: OSS_AK
               valueFrom:
@@ -25,8 +25,8 @@ spec:
             - name: OSS_BASE_URL # i.e. oss://influx-backup-test/staging/
               valueFrom:
                 configMapKeyRef:
-                  name: hub
-                  key: aws_access_key_id
+                  name: influx-backup
+                  key: oss_base_url
             imagePullPolicy: IfNotPresent
             command:
             - bash
