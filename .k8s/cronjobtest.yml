@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: testcj
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: cronjob-test
+            image: registry.cn-shanghai.aliyuncs.com/netilion-china/influx-backup-test:6c7a4f5b2731c57a806034b5e6779289603092ea
+            env:
+            - name: OSS_AK
+              valueFrom:
+                configMapKeyRef:
+                  name: hub
+                  key: aws_access_key_id
+            - name: OSS_AK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: hub
+                  key: secret_access_key
+            - name: OSS_BASE_URL # i.e. oss://influx-backup-test/staging/
+              valueFrom:
+                configMapKeyRef:
+                  name: hub
+                  key: aws_access_key_id
+            imagePullPolicy: IfNotPresent
+            command:
+            - bash
+            - ./scripts/testcronjob.sh
+          restartPolicy: OnFailure
