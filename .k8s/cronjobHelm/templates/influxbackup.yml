@@ -12,7 +12,7 @@ spec:
           - name: cronjob-test
             image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
             env:
-            {{ include "secret" (dict "name" "OSS_BASE_URL") | nindent 12 }}
+            {{ include "config" (dict "name" "OSS_BASE_URL") | nindent 12 }}
             {{ include "config" (dict "name" "INFLUX_HOST") | nindent 12 }}
             {{ include "config" (dict "name" "OSS_AK" "key" "aws_access_key_id" "namespace" "hub") | nindent 12 }}
             {{ include "secret" (dict "name" "OSS_AK_SECRET" "key" "secret_access_key" "namespace" "hub") | nindent 12 }}
