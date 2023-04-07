@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: influx-backup
 spec:
-  schedule: "* 16 * * *"
+  schedule: "*/3 * * * *"
   jobTemplate:
     spec:
       template:
