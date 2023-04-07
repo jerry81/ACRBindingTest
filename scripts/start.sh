@@ -22,4 +22,4 @@ touch ./scripts/lastUpdate.txt
 
 $curdate > ./scripts/lastUpdate.txt
 
-aliyun oss cp ./scripts/lastUpdate.txt ${OSS_BASE_URL}
+aliyun oss cp ./scripts/lastUpdate.txt ${OSS_BASE_URL} -f
