@@ -10,4 +10,3 @@ RUN mkdir /scripts
 
 COPY ./scripts/start.sh ./scripts
 
-CMD ["sleep", "infinity"]

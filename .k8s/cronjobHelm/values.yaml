@@ -1,0 +1,9 @@
+# Default values for jerry-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: registry.cn-shanghai.aliyuncs.com/netilion-china/test-cronjob
+  tag: latest

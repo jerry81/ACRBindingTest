@@ -69,4 +69,4 @@ jobs:
         ./get_helm.sh
     - name: Deploy
       run: |-
-        helm upgrade --install --recreate-pods --force --reset-values --set image.repository=$REGISTRY/$NAMESPACE/$IMAGE,image.tag=$TAG influx-backup ./.k8s/influx-backup
+        helm upgrade --install --recreate-pods --force --reset-values --set image.repository=$REGISTRY/$NAMESPACE/$IMAGE,image.tag=$TAG influx-backup ./.k8s/cronjobHelm
