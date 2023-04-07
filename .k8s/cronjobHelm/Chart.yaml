@@ -1,5 +1,5 @@
 apiVersion: v2
-name: full-cronjob-dryrun
+name: influx-backup
 description: Netilion Influx Backup cronjob
 type: application
 version: 0.1.0
