@@ -3,12 +3,12 @@ name: Build and Deploy Influx Backup to ACK
 on:
   workflow_dispatch:
     inputs:
-    cluster:
-      description: 'Deploy to:'
-      type: choice
-      options:
-        - production
-        - staging
+      cluster:
+        description: 'Deploy to:'
+        type: choice
+        options:
+          - production
+          - staging
 
 env:
   REGION_ID: cn-shanghai
