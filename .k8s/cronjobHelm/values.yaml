@@ -5,5 +5,5 @@
 replicaCount: 1
 
 image:
-  repository: registry.cn-shanghai.aliyuncs.com/netilion-china/test-cronjob
+  repository: registry.cn-shanghai.aliyuncs.com/netilion-china/influx-backup
   tag: latest
