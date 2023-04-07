@@ -9,7 +9,7 @@ spec:
       template:
         spec:
           containers:
-          - name: cronjob-test
+          - name: influx-backup-job
             image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
             env:
             {{ include "config" (dict "name" "OSS_BASE_URL") | nindent 12 }}
