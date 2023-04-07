@@ -20,6 +20,6 @@ aliyun oss cp ./tmp ${OSS_BASE_URL}/$curDate -r -f
 
 touch ./scripts/lastUpdate.txt
 
-$curdate > ./scripts/lastUpdate.txt
+$curDate > ./scripts/lastUpdate.txt
 
 aliyun oss cp ./scripts/lastUpdate.txt ${OSS_BASE_URL} -f
