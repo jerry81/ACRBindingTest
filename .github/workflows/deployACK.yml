@@ -2,6 +2,13 @@ name: Build and Deploy Influx Backup to ACK
 
 on:
   workflow_dispatch:
+    inputs:
+    cluster:
+      description: 'Deploy to:'
+      type: choice
+      options:
+        - production
+        - staging
 
 env:
   REGION_ID: cn-shanghai
@@ -10,8 +17,6 @@ env:
   IMAGE: influx-backup
   TAG: ${{ github.sha }}
   ACK_CLUSTER_ID: ce1d89e1ffb644a42ad94a226e5e8aa52
-  ACK_DEPLOYMENT_NAME: hub
-  DOCKERFILE_NAME: Dockerfile.china.staging
 
 jobs:
   build:
@@ -22,7 +27,6 @@ jobs:
     - name: Set Environment
       run: |
         echo "ACK_CLUSTER_ID=cfbfd43a3637d47a3ad079bcb0557a275" >> $GITHUB_ENV
-        echo "DOCKERFILE_NAME=Dockerfile.china" >> $GITHUB_ENV
       if: github.event.inputs.cluster == 'production'
 
     - name: Checkout
