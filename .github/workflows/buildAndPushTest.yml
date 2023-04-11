@@ -7,11 +7,11 @@ env:
   REGION_ID: cn-shanghai
   REGISTRY: registry.cn-shanghai.aliyuncs.com
   NAMESPACE: netilion-china
-  IMAGE: test-cronjob
+  IMAGE: influx-sandbox
   TAG: ${{ github.sha }}
   ACK_CLUSTER_ID: ce1d89e1ffb644a42ad94a226e5e8aa52
   ACK_DEPLOYMENT_NAME: hub
-  DOCKERFILE_NAME: Dockerfile.test_cronjob
+  DOCKERFILE_NAME: Dockerfile.sandbox
 
 jobs:
   build:
