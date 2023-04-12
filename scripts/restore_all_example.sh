@@ -8,11 +8,13 @@ cd tmp
 
 aliyun oss cp oss://influx-backup-staging -r .
 
+$IH=${INFLUX_HOST:0:$((${#INFLUX_HOST}-5))}
+
 for d in */ ; do
     influxd restore -host $INFLUX_HOST -db lcm -rp asset_values_retention_policy -portable -newdb tmp $d
-    influx -host $INFLUX_HOST -ssl -username $INFLUX_USERNAME -password $INFLUX_PASSWORD -execute 'SELECT * INTO "fullrestoretest".asset_values_retention_policy.:MEASUREMENT FROM "tmp".asset_values_retention_policy./.*/ GROUP BY *'
+    influx -host $IH -ssl -username $INFLUX_USERNAME -password $INFLUX_PASSWORD -execute 'SELECT * INTO "fullrestoretest".asset_values_retention_policy.:MEASUREMENT FROM "tmp".asset_values_retention_policy./.*/ GROUP BY *'
     influx -host $IH -ssl -username $INFLUX_USERNAME -password $INFLUX_PASSWORD -execute 'DROP DATABASE "tmp"'
 done
 cd ..
 rm -rf tmp
-echo "rm rf complete"
+echo "restore complete"
